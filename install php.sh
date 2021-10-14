@@ -17,3 +17,9 @@ sudo nano /etc/apache2/apache2.conf
 ## add this line inside->
 # Include /etc/phpmyadmin/apache.conf
 sudo service apache2 reload
+
+## for change root paassword
+UPDATE mysql.user SET authentication_string=null WHERE User='root';
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+
